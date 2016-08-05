@@ -2,7 +2,7 @@
  Action Steps
   done - 1) Create button that updates feed list
   done - 2) Auto refresh every second instead of button
-  3) Show timestamps in a readable format
+  done- 3) Show timestamps in a readable format
   4) Make usernames clickable to show individual feeds
   5) Make it pretty
 
@@ -26,8 +26,9 @@
         var index = streams.home.length - 1;        
         while(index >= 0){
           var tweet = streams.home[index];
+          var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + " at" + time);
           $tweet.appendTo($feed);
           index -= 1;
         }
