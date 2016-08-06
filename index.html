@@ -53,7 +53,20 @@
 
         for(index; index >= stop; index --) {    
           var tweet = streamOrUser[index];
-          var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
+
+          var hours = tweet.created_at.getHours();
+          var minutes = tweet.created_at.getMinutes();
+          var seconds = tweet.created_at.getSeconds()
+          var dayOrNight = "";
+
+    
+          var dayOrNight = hours <= 12 ? " AM" : " PM", hours = hours - 12;
+          if (hours === 0) hours = 12;
+          if (seconds < 10) seconds = "0" + seconds;
+          if (minutes < 10) minutes = "0" + minutes;
+          var time = hours + ":" + minutes + ":" + seconds + dayOrNight;
+
+          // var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
           var $tweet = $('<div class = "tweeted"></div>');
           $tweet.html("<div class='user line'><a href = '#' class='userLink'>@" + tweet.user + "</a></div>" +
                       "<div class ='message line'>" + tweet.message + "</div>" + 
