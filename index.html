@@ -42,14 +42,15 @@
         var $feed = $('#feed');
         $feed.html('');
 
-        var index = streamOrUser.length - 1;        
-        while(index >= 0){
+        var index = streamOrUser.length - 1;   
+        var stop = index >= 15 ? index - 14 : 0;
+
+        for(index; index >= stop; index --) {    
           var tweet = streamOrUser[index];
           var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
           var $tweet = $('<div class = "tweeted"></div>');
           $tweet.html("@ <a href = '#' class='userLink'>" + tweet.user + "</a> : " + tweet.message + " at " + time);
           $tweet.appendTo($feed);
-          index -= 1;
         }
       }
 
