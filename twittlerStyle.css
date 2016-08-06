@@ -1,0 +1,47 @@
+body {
+	background-color: #007399;
+}
+
+h1 {
+	text-align: center;
+	font-family: Helvetica, "Courier New", Helvetica, "Times New Roman";
+	color: #e6f9ff;
+	font-size: 50px;
+}
+
+.placeholderButtons {
+	margin: 0 0 0 550px;
+}
+
+.tweeted {
+	width: 1000px;
+	margin: 0 auto 0 auto;
+
+}
+
+.line {
+	box-sizing:border-box;
+	font-size: 24px;
+	padding: 5px;
+	background-color: #e6f9ff;
+	border-top: 1px solid  #000033;
+	border-bottom: 1px solid  #000033;
+}
+
+.user {
+	float:left;
+	width: 250px;
+	border-right: 1px solid  #000033;
+	border-left: 2px solid  #000033;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.message {
+	float:left;
+	width: 750px;
+	border-right: 2px solid  #000033;
+	border-left: 1px solid  #000033;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
