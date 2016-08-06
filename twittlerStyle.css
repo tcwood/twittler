@@ -21,8 +21,8 @@ h1 {
 
 .line {
 	box-sizing:border-box;
-	font-size: 24px;
-	padding: 5px;
+	font-size: 20px;
+	padding: 10px 0 10px 0;
 	background-color: #e6f9ff;
 	border-top: 1px solid  #000033;
 	border-bottom: 1px solid  #000033;
@@ -30,7 +30,7 @@ h1 {
 
 .user {
 	float:left;
-	width: 250px;
+	width: 200px;
 	border-right: 1px solid  #000033;
 	border-left: 2px solid  #000033;
 	border-top-left-radius: 15px;
@@ -39,9 +39,18 @@ h1 {
 
 .message {
 	float:left;
-	width: 750px;
-	border-right: 2px solid  #000033;
+	padding-left: 10px;
+	width: 650px;
 	border-left: 1px solid  #000033;
+}
+
+.time {
+	float:right;
+	width: 150px;
+	border-right: 2px solid  #000033;
 	border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
+
+
+

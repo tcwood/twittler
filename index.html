@@ -49,14 +49,15 @@
         $feed.html('');
 
         var index = streamOrUser.length - 1;   
-        var stop = index >= 15 ? index - 14 : 0;
+        var stop = index >= 10 ? index - 9 : 0;
 
         for(index; index >= stop; index --) {    
           var tweet = streamOrUser[index];
           var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
           var $tweet = $('<div class = "tweeted"></div>');
           $tweet.html("<div class='user line'><a href = '#' class='userLink'>@" + tweet.user + "</a></div>" +
-                      "<div class ='message line'>" + tweet.message + " at " + time +"</div>");
+                      "<div class ='message line'>" + tweet.message + "</div>" + 
+                      "<div class = 'time line'> at " + time +"</div>");
           $tweet.appendTo($feed);
         }
       }
