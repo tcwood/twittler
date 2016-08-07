@@ -3,8 +3,8 @@
   done - 1) Create button that updates feed list
   done - 2) Auto refresh every second instead of button
   done- 3) Show timestamps in a readable format
-  4) Make usernames clickable to show individual feeds
-  5) Make it pretty
+  done- 4) Make usernames clickable to show individual feeds
+  kinda- 5) Make it pretty
 
   Advanced
   1) Make timestamps user-friendly(use some library)
@@ -18,31 +18,15 @@
     <script src="data_generator.js"></script>
   </head>
   <body>
-    <div class = "placeholderButtons">
+    <h1>Twittler</h1>
+
+    <div class = "button">
       <button id = "home">Click for Complete Feed</button>
     </div>
-    
-    <h1>Twittler</h1>
 
     <div id ="feed"></div>
 
     <script>
-
-      // var updateFeed = function(){
-      //   var $feed = $('#feed');
-      //   $feed.html('');
-
-      //   var index = streams.home.length - 1;        
-      //   while(index >= 0){
-      //     var tweet = streams.home[index];
-      //     var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
-      //     var $tweet = $('<div class = "tweeted"></div>');
-      //     $tweet.html("@ <a href = '#'>" + tweet.user + "</a> : " + tweet.message + " at " + time);
-      //     $tweet.appendTo($feed);
-      //     index -= 1;
-      //   }
-      // }
-
       var updateFeed = function(streamOrUser){
         var $feed = $('#feed');
         $feed.html('');
@@ -74,36 +58,27 @@
         }
       }
 
-
-
       $(document).ready(function(){
-
-
-
-
         var snippet = streams.home;  //streams.home or streams.users.<username>
         
         $('#feed').on('click', 'a', function(){
           var userName = $(this).text().slice(1);
           snippet = streams.users[userName];
           $('h1').text(userName + "'s Timeline")
+          $('#home').css("visibility", "visible");
         });
         
         $('#home').on('click', function(){
           snippet = streams.home;
           $('h1').text('Twittler');
           updateFeed(snippet);
+          $('#home').css("visibility", "hidden");
         });
         
         updateFeed(snippet);
 
         setInterval(function(){updateFeed(snippet)}, 500);
-
-
-
       });
-
-
     </script>
   </body>
 </html>
