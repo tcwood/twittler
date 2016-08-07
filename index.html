@@ -19,7 +19,6 @@
   </head>
   <body>
     <div class = "placeholderButtons">
-      <button id = "sd">Click for Shawn Drost Feed</button>
       <button id = "home">Click for Complete Feed</button>
     </div>
     
@@ -85,19 +84,20 @@
         var snippet = streams.home;  //streams.home or streams.users.<username>
         
         $('#feed').on('click', 'a', function(){
-          snippet = streams.users.shawndrost;
-          // snippet = $(this).text;
-          updateFeed(snippet);
+          var userName = $(this).text().slice(1);
+          snippet = streams.users[userName];
+          $('h1').text(userName + "'s Timeline")
         });
         
         $('#home').on('click', function(){
           snippet = streams.home;
+          $('h1').text('Twittler');
           updateFeed(snippet);
         });
         
         updateFeed(snippet);
 
-        setInterval(function(){updateFeed(snippet)}, 1000);
+        setInterval(function(){updateFeed(snippet)}, 500);
 
 
 
