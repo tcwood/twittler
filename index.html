@@ -61,27 +61,35 @@
 
     
           var dayOrNight = hours <= 12 ? " AM" : " PM", hours = hours - 12;
-          if (hours === 0) hours = 12;
-          if (seconds < 10) seconds = "0" + seconds;
-          if (minutes < 10) minutes = "0" + minutes;
+          if (hours === 0) {hours = 12;}
+          if (seconds < 10) {seconds = "0" + seconds;}
+          if (minutes < 10) {minutes = "0" + minutes;}
           var time = hours + ":" + minutes + ":" + seconds + dayOrNight;
 
-          // var time = tweet.created_at.getHours() + ":" + tweet.created_at.getMinutes() + ":" + tweet.created_at.getSeconds();
           var $tweet = $('<div class = "tweeted"></div>');
           $tweet.html("<div class='user line'><a href = '#' class='userLink'>@" + tweet.user + "</a></div>" +
                       "<div class ='message line'>" + tweet.message + "</div>" + 
                       "<div class = 'time line'> at " + time +"</div>");
+          
           $tweet.appendTo($feed);
         }
       }
 
+
+
       $(document).ready(function(){
+
+
+
+
         var snippet = streams.home;  //streams.home or streams.users.<username>
         
-        $('#sd').on('click', function(){
+        $('#feed').on('click', 'a', function(){
           snippet = streams.users.shawndrost;
+          // snippet = $(this).text;
           updateFeed(snippet);
         });
+        
         $('#home').on('click', function(){
           snippet = streams.home;
           updateFeed(snippet);
